@@ -1,6 +1,5 @@
 
 from DNAToolkit import *
 
-randomDNA  = "ATTCctgctaaAGGCTCGG"
-
+randomDNA  = genDNA(52)
 print(isValidDNA(randomDNA))

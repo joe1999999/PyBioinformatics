@@ -1,4 +1,5 @@
 #DNA Toolkit File
+import random 
 
 # For Re-Use Purposes
 NUCLEOTIDES = ["A","C","T","G"]
@@ -12,4 +13,6 @@ def isValidDNA(DNA):
 			return False
 	return upperDNA
 
-
+def genDNA(length):
+	randomDNA = "".join([random.choice(NUCLEOTIDES) for nucleotide in range(length)])
+	return randomDNA
