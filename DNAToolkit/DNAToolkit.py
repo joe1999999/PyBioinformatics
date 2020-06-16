@@ -1,10 +1,8 @@
 #DNA Toolkit File
+from sequences import *
 import random 
 # import collections
 
-# For Re-Use Purposes
-NUCLEOTIDES = ["A","C","T","G"]
-NUCLEOTIDESREVERSECOMPLEMENT = {"A":"T", "T":"A", "C":"G", "G":"C"}
 
 # Checks the Validity of a DNA Sequence
 def isValidDNA(DNA):
