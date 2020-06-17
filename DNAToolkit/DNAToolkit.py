@@ -8,13 +8,13 @@ import random
 def isValidDNA(DNA):
     upperDNA = DNA.upper()
     for nucleotide in upperDNA:
-        if nucleotide not in NUCLEOTIDES:
+        if nucleotide not in NUCLEOTIDES["DNA"]:
             return False
     return True
 
 # Generates a Valid Random DNA Sequence With a Given Length
 def genDNA(length):
-    randomDNASequence = "".join([random.choice(NUCLEOTIDES)
+    randomDNASequence = "".join([random.choice(NUCLEOTIDES["DNA"])
                                  for nucleotide in range(length)])
     return randomDNASequence
 
@@ -33,9 +33,17 @@ def nucFrequencyCount(DNA):
     return NucleotideFrequencies
     # return dict(collections.Counter(seq))
 
-# DNA Transcription to RNA
-def DNA2RNA(DNA):
+# DNA Sequence Transcription into mRNA
+def DNA2mRNA(DNA):
     return DNA.replace("T", "U")
+
+# DNA Sequence Translation into a Peptide Chain
+def DNA2PEPTIDE(DNA, **kwargs):
+    if (kwargs.get('start', None) is not None):
+        initializeCodonPosition = kwargs.get('start', None) - 1
+    else:
+        initializeCodonPosition = 0
+    return [DNA_Peptide_Codons[DNA[readPointer:readPointer+3]] for readPointer in range(initializeCodonPosition, len(DNA) - 2, 3)]
 
 # Generates a Reverse Complement of a DNA Strand
 def DNAReverseComplement(DNA):
@@ -47,5 +55,6 @@ def GCContent(DNA, **kwargs):
     subSeqEnd = kwargs.get('end', None)
     if (subSeqEnd and subSeqEnd > 0 and subSeqEnd and subSeqEnd < nucAllCount(DNA)):
         subSequence = DNA[subSeqStart-1:subSeqEnd]
-        return ((subSequence.count("C") + subSequence.count("G")) / nucAllCount(subSequence)) * 100
-    return ((DNA.count("C") + DNA.count("G")) / nucAllCount(DNA)) * 100
+        return ((subSequence.count("C") + subSequence.count("G")) / len(subSequence)) * 100
+    return ((DNA.count("C") + DNA.count("G")) / len(DNA)) * 100
+
