@@ -1,6 +1,7 @@
 
 from DNAToolkit import *
-mRNA = genmRNA(33)
-print("mRNA >" + mRNA)
-print("\n")
-print(mRNA2PEPTIDE(mRNA, start=1)) # equivalent to mRNA2PEPTIDE(mRNA) since translation starting position is 1
+DNA = genDNA(1000)
+print(DNA)
+print(DNA2PEPTIDE(DNA))
+# Displays Alanine CODONS with their Respective Usage Frequencies
+print(CodonUsageFreq(DNA, "A")) # A Refers to Alanine - ALA 

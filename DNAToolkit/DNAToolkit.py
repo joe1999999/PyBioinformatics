@@ -1,7 +1,7 @@
 # DNA Toolkit File
 from sequences import *
 import random
-# import collections
+from collections import Counter
 
 
 # Checks the Validity of a DNA Sequence
@@ -87,4 +87,18 @@ def GCContent(sequence, **kwargs):
         subSequence = sequence[subSeqStart-1:subSeqEnd]
         return ((subSequence.count("C") + subSequence.count("G")) / len(subSequence)) * 100
     return ((sequence.count("C") + sequence.count("G")) / len(sequence)) * 100
+
+# Calculates the Frequency of Each Different Codon Encoding a Given Amino Acide in a DNA Sequence
+def CodonUsageFreq(DNA, aminoAcide):
+    codons = []
+    for readPointer in range(0, len(DNA) - 2, 3):
+        if(DNA_Peptide_Codons[DNA[readPointer:readPointer+3]] == aminoAcide):
+            codons.append(DNA[readPointer:readPointer+3])
+    codonFreqDict = dict(Counter(codons))
+    total = sum(codonFreqDict.values())
+    for CODON in codonFreqDict :
+        codonFreqDict[CODON] = round(codonFreqDict[CODON] / total, 3)
+    return codonFreqDict         
+
+
 
