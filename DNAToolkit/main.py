@@ -1,6 +1,6 @@
 
 from DNAToolkit import *
-dna = genDNA(33)
-print("DNA >" + dna)
+mRNA = genmRNA(33)
+print("mRNA >" + mRNA)
 print("\n")
-print(DNA2PEPTIDE(dna, start=1)) # equivalent to DNA2PEPTIDE(dna) since translation starting position is 1
+print(mRNA2PEPTIDE(mRNA, start=1)) # equivalent to mRNA2PEPTIDE(mRNA) since translation starting position is 1

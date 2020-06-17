@@ -33,7 +33,7 @@ DNA_Peptide_Codons = {
     "TAA": "_", "TAG": "_", "TGA": "_"
 }
 
-RNA_Peptide_Codons = {
+mRNA_Peptide_Codons = {
     # 'M' - START, '_' - STOP
     "GCU": "A", "GCC": "A", "GCA": "A", "GCG": "A",
     "UGU": "C", "UGC": "C",
