@@ -101,4 +101,3 @@ def CodonUsageFreq(DNA, aminoAcide):
     return codonFreqDict         
 
 
-
