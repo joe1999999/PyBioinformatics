@@ -15,7 +15,6 @@ Strings can be returned in any order.
 """
 
 
-from sequences import * 
 from DNAToolkit import *
 
 
